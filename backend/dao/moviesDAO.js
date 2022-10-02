@@ -22,9 +22,9 @@ export default class MoviesDAO {
 	} = {}) {
 		let query;
 		if (filters) {
-			if (filters.hasOwnProperty("title")) {
-				query = { $text: { $search: filter["title"] } };
-			} else if (filters.hasOwnProperty("rated")) {
+			if ("title" in filters) {
+				query = { $text: { $search: filters["title"] } };
+			} else if ("rated" in filters) {
 				query = { rated: filters["rated"] };
 			}
 		}
